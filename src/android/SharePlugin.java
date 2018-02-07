@@ -24,12 +24,11 @@ public class SharePlugin extends CordovaPlugin {
 
     private void share(String message, CallbackContext callbackContext) {
          try {
-             String text = "text";
              String title = "title";
              String mimetype = "text/plain";
              Intent sendIntent = new Intent();
              sendIntent.setAction(Intent.ACTION_SEND);
-             sendIntent.putExtra(Intent.EXTRA_TEXT, text);
+             sendIntent.putExtra(Intent.EXTRA_TEXT, message);
              sendIntent.setType(mimetype);
              cordova.getActivity().startActivity(Intent.createChooser(sendIntent, title));
              callbackContext.success("success");
